@@ -37,7 +37,7 @@ RUN conda config --add channels conda-forge && \
     # ansible
     ansible-kernel \
     ##fortran_kernel \
-    cython patsy statsmodels cloudpickle dill tensorflow r-xml \
+    cython patsy statsmodels cloudpickle dill tensorflow r-xml && \
     conda env update -f climate_environment.yml && conda clean -yt && \
     pip install --no-cache-dir bioblend galaxy-ie-helpers
 
