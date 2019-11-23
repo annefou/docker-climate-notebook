@@ -1,10 +1,10 @@
 name: base
 channels:
-  - esmvalgroup 
   - conda-forge
   - bioconda
   - defaults
 dependencies:
+  - biopython
   # core scipy packages
   - numpy
   - scipy
@@ -88,7 +88,6 @@ dependencies:
   - prefect
   - rasterstats
   - requests
-  - rise
   - plotly
   - psy-maps
   - psy-reg
@@ -99,8 +98,6 @@ dependencies:
   - papermill
   - pillow
   - pip
-  - pyaerocom
-  - esmvaltool
   - nc-time-axis
   - nco
   - jupytext
@@ -117,3 +114,5 @@ dependencies:
       - geojsoncontour
       - nbgitpuller
       - pysplit
+      - bioblend 
+      - galaxy-ie-helpers

@@ -23,23 +23,7 @@ USER jovyan
 ADD climate_environment.yml climate_environment.yml
 
 # Python packages
-RUN conda config --add channels conda-forge && \
-    conda config --add channels bioconda && \
-    conda install --yes --quiet \
-    biopython \
-    rpy2 \
-    bash_kernel \
-    octave_kernel \
-    # Scala
-    spylon-kernel \
-    # Java
-    scijava-jupyter-kernel \
-    # ansible
-    ansible-kernel \
-    ##fortran_kernel \
-    cython patsy statsmodels cloudpickle dill tensorflow r-xml && \
-    conda env update -f climate_environment.yml && conda clean -yt && \
-    pip install --no-cache-dir bioblend galaxy-ie-helpers
+RUN conda env update -f climate_environment.yml && conda clean -yt
 
 # Enable jupyterlab extension
 RUN jupyter labextension install @jupyterlab/hub-extension @jupyter-widgets/jupyterlab-manager
@@ -68,7 +52,6 @@ RUN mkdir -p /home/$NB_USER/.ipython/profile_default/startup/
 RUN mkdir -p /home/$NB_USER/.jupyter/custom/
 
 COPY ./ipython-profile.py /home/$NB_USER/.ipython/profile_default/startup/00-load.py
-#ADD ./ipython_notebook_config.py /home/$NB_USER/.jupyter/jupyter_notebook_config.py
 COPY jupyter_notebook_config.py /home/$NB_USER/.jupyter/
 
 ADD ./custom.js /home/$NB_USER/.jupyter/custom/custom.js
@@ -87,8 +70,6 @@ ENV DEBUG=false \
     GALAXY_URL=none
 
 RUN mkdir /export/ && chown -R $NB_USER:users /home/$NB_USER/ /import /export/
-
-##USER jovyan
 
 WORKDIR /import
 
