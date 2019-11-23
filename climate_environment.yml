@@ -20,6 +20,21 @@ dependencies:
   - tensorflow
   - keras
   - pytorch-cpu
+  # pyviz
+  - holoviews
+  - panel
+  - geoviews
+  - hvplot
+  - geoviews
+  - datashader
+  - seaborn
+  - altair
+  - descartes
+  - folium
+  - vega
+  - vega_datasets
+  - palettable
+  - cmocean
   - pip
   - pip:
       - bioblend 
