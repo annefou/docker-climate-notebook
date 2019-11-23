@@ -25,6 +25,14 @@ ADD climate_environment.yml climate_environment.yml
 # Python packages
 RUN conda env update -f climate_environment.yml && conda clean -yt
 
+RUN /opt/conda/bin/jupyter labextension install @jupyterlab/hub-extension @jupyter-widgets/jupyterlab-manager
+RUN /opt/conda/bin/jupyter labextension install jupyterlab-datawidgets nbdime-jupyterlab dask-labextension
+RUN /opt/conda/bin/jupyter labextension install @jupyter-widgets/jupyterlab-sidecar
+RUN /opt/conda/bin/jupyter serverextension enable jupytext
+RUN /opt/conda/bin/jupyter nbextension install --py jupytext --user
+RUN /opt/conda/bin/jupyter nbextension enable --py jupytext --user
+RUN /opt/conda/bin/jupyter labextension install @jupyterlab/geojson-extension 
+
 ADD ./startup.sh /startup.sh
 ADD ./monitor_traffic.sh /monitor_traffic.sh
 ADD ./get_notebook.py /get_notebook.py

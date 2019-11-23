@@ -2,6 +2,7 @@ name: base
 channels:
   - conda-forge
   - bioconda
+  - esmvalgroup
   - defaults
 dependencies:
   - biopython
@@ -35,7 +36,86 @@ dependencies:
   - vega_datasets
   - palettable
   - cmocean
+   # geospatial
+  - iris
+  - cartopy
+  - basemap
+  - basemap-data-hires
+  - geopandas
+  - rasterio
+  - netcdf4
+  - erddapy
+  - pydap
+  - h5py
+  - h5netcdf
+  - regionmask
+  - rio-cogeo
+  # geoscience-related
+  - climlab
+  - metpy
+  - satpy
+  - gsw
+  - eofs
+  - esmpy
+  - xesmf
+  - windspharm
+  # intake-related
+  - intake
+  - intake-xarray
+  - intake-esm
+  - fsspec
+  - intake-stac
+  # zarr-related
+  - zarr
+  - numcodecs
+  - python-blosc
+  - lz4
+  - gcsfs
+  - s3fs
+  - tiledb-py
+  # jupyter-related
+  - ipyleaflet
+  # xarray-related
+  - xgcm
+  - xrft
+  - xhistogram
+  - xlrd
+  - xrviz
+  - climpred
+  - pytide
+  - pyinterp
+  # misc
+  - python-wget
+  - prefect
+  - rasterstats
+  - requests
+  - plotly
+  - psy-maps
+  - psy-reg
+  - psyplot
+  - psyplot-gui
+  - psy-maps
+  - psy-reg
+  - papermill
+  - pillow
   - pip
+  - pyaerocom
+  - esmvaltool
+  - nc-time-axis
+  - nco
+  - jupytext
+  - geopy
+  - branca
+  - cdo
+  - cdsapi
+  - cfgrib
+  - cis
   - pip:
       - bioblend 
       - galaxy-ie-helpers
+      - dask_labextension
+      - ipydatawidgets
+      - sidecar
+      - geojsoncontour
+      - nbgitpuller
+      - pysplit
