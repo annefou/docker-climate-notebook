@@ -60,6 +60,8 @@ History
 
 - [v1.0](https://github.com/NordicESMhub/docker-climate-notebook/releases/tag/1.0): Initial public release with [pangeo notebook](https://github.com/pangeo-data/pangeo-stacks/tree/master/pangeo-notebook) sotware stack and a few more additional packages.
 
+- [v1.1](https://github.com/NordicESMhub/docker-climate-notebook/releases/tag/1.1): Public release with the same set of packages than version [v1.0](https://github.com/NordicESMhub/docker-climate-notebook/releases/tag/1.0) but it produces a slightly smaller docker container.
+
 
 Licence (MIT)
 =============
