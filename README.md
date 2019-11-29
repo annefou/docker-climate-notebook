@@ -6,6 +6,7 @@ Docker Climate Analysis Jupyter Container
 
 <p align="center">
 <img src="climate-jupyter-galaxy_web.gif" width="50%"/>
+<img src="map_vis_Galaxy.gif" width="50%"/>
 </p>
 
 This [Jupyter](http://jupyter.org/) Docker container is used by the [Galaxy Project](https://galaxyproject.org/) and can be installed from the [docker.io index](https://hub.docker.com/r/nordicesmhub/docker-climate-notebook).
