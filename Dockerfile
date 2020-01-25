@@ -21,6 +21,7 @@ USER jovyan
 
 # Install requirements for Python 3
 ADD climate_environment.yml climate_environment.yml
+ADD cesm_environment.yml cesm_environment.yml
 
 # Python packages
 RUN conda env update -f climate_environment.yml && conda clean -yt
@@ -32,6 +33,12 @@ RUN /opt/conda/bin/jupyter labextension install @jupyterlab/hub-extension @jupyt
     /opt/conda/bin/jupyter nbextension install --py jupytext --user && \
     /opt/conda/bin/jupyter nbextension enable --py jupytext --user && \
     /opt/conda/bin/jupyter labextension install @jupyterlab/geojson-extension
+
+# CESM package
+RUN conda env create -f cesm_environment.yml && conda clean -yt
+RUN source activate cesm && \
+    /opt/conda/bin/ipython kernel install --user --name cesm && \
+    /opt/conda/bin/python -m ipykernel install --user --name=cesm
 
 ADD ./startup.sh /startup.sh
 ADD ./monitor_traffic.sh /monitor_traffic.sh
