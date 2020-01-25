@@ -26,7 +26,7 @@ ADD climate_environment.yml climate_environment.yml
 RUN conda env update -f climate_environment.yml && conda clean -yt
 
 RUN /opt/conda/bin/jupyter labextension install @jupyterlab/hub-extension @jupyter-widgets/jupyterlab-manager && \
-    /opt/conda/bin/jupyter labextension install jupyterlab-datawidgets nbdime-jupyterlab dask-labextension && \
+    /opt/conda/bin/jupyter labextension install jupyter-leaflet jupyterlab-datawidgets nbdime-jupyterlab dask-labextension && \
     /opt/conda/bin/jupyter labextension install @jupyter-widgets/jupyterlab-sidecar && \
     /opt/conda/bin/jupyter serverextension enable jupytext && \
     /opt/conda/bin/jupyter nbextension install --py jupytext --user && \
