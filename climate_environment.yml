@@ -101,7 +101,6 @@ dependencies:
   - pip
   - pyaerocom
   - esmvaltool
-  - cesm
   - nc-time-axis
   - nco
   - jupytext
