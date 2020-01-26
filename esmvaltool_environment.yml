@@ -1,0 +1,48 @@
+name: esmvaltool
+
+channels:
+  - esmvalgroup
+  - conda-forge
+  - defaults
+
+dependencies:
+  - numpy
+  - xarray
+  - pandas
+  - cartopy
+  - matplotlib
+  - seaborn
+  - basemap
+  - geopy
+  - netcdf4
+  - cis
+  - metpy
+  - scipy
+  - scikit-learn
+  - nc-time-axis
+  - plotly
+  - ipyleaflet
+  - rasterio
+  - tqdm
+  - requests
+  - pillow
+  - branca
+  - geopandas
+  - cdsapi
+  - folium  
+  - esmvaltool
+  - basemap-data-hires
+  - rasterstats
+  - cfgrib
+  - cdo
+  - nco
+  - papermill
+  - jupytext
+  - pip
+  - pip:
+      - dask_labextension
+      - ipydatawidgets
+      - sidecar
+      - geojsoncontour
+      - nbgitpuller
+      - pysplit
