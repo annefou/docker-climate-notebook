@@ -10,7 +10,7 @@ ENV DEBIAN_FRONTEND noninteractive
 USER root
 
 RUN apt-get -qq update && apt-get install --no-install-recommends -y libcurl4-openssl-dev libxml2-dev \
-    apt-transport-https python-dev libc-dev pandoc pkg-config liblzma-dev libbz2-dev libpcre3-dev \
+    apt-transport-https python-dev libc-dev pandoc pkg-config liblzma-dev libbz2-dev libpcre3-dev vim nano \
     build-essential libblas-dev liblapack-dev gfortran libzmq3-dev libyaml-dev libxrender1 fonts-dejavu \
     libfreetype6-dev libpng-dev net-tools procps libreadline-dev wget software-properties-common octave \
     # IHaskell dependencies
@@ -26,12 +26,12 @@ ADD climate_environment.yml climate_environment.yml
 RUN conda env update -f climate_environment.yml && conda clean -yt
 
 RUN /opt/conda/bin/jupyter labextension install @jupyterlab/hub-extension @jupyter-widgets/jupyterlab-manager && \
-    /opt/conda/bin/jupyter labextension install jupyter-leaflet jupyterlab-datawidgets nbdime-jupyterlab dask-labextension && \
+    /opt/conda/bin/jupyter labextension install jupyterlab-datawidgets nbdime-jupyterlab dask-labextension && \
     /opt/conda/bin/jupyter labextension install @jupyter-widgets/jupyterlab-sidecar && \
     /opt/conda/bin/jupyter serverextension enable jupytext && \
     /opt/conda/bin/jupyter nbextension install --py jupytext --user && \
     /opt/conda/bin/jupyter nbextension enable --py jupytext --user && \
-    /opt/conda/bin/jupyter labextension install @jupyterlab/geojson-extension
+    /opt/conda/bin/jupyter labextension install @jupyterlab/geojson-extension jupyter-leaflet 
 
 # CESM package
 ADD cesm_environment.yml cesm_environment.yml
