@@ -55,8 +55,7 @@ RUN . /opt/conda/etc/profile.d/conda.sh && conda activate esmvaltool && \
                            @jupyter-widgets/jupyterlab-manager && \
     /opt/conda/bin/jupyter labextension install jupyterlab-datawidgets && \
     /opt/conda/bin/jupyter labextension install @jupyter-widgets/jupyterlab-sidecar && \
-    /opt/conda/bin/jupyter labextension install @pyviz/jupyterlab_pyviz \
-		                              jupyter-leaflet
+    /opt/conda/bin/jupyter labextension install jupyter-leaflet
 
 ADD ./startup.sh /startup.sh
 ADD ./monitor_traffic.sh /monitor_traffic.sh
