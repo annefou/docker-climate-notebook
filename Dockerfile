@@ -38,7 +38,7 @@ ADD cesm_environment.yml cesm_environment.yml
 
 # Python packages
 RUN conda env create -f cesm_environment.yml && conda clean -yt
-RUN conda activate cesm && \
+RUN . /opt/conda/etc/profile.d/conda.sh && conda activate cesm && \
     /opt/conda/bin/ipython kernel install --user --name cesm && \
     /opt/conda/bin/python -m ipykernel install --user --name=cesm && \
     /opt/conda/bin/jupyter labextension install @jupyterlab/hub-extension \
@@ -46,7 +46,7 @@ RUN conda activate cesm && \
     /opt/conda/bin/jupyter labextension install jupyterlab-datawidgets
 
 RUN conda env create -f esmvaltool_environment.yml && conda clean -yt
-RUN conda activate esmvaltool && \
+RUN . /opt/conda/etc/profile.d/conda.sh && conda activate esmvaltool && \
     /opt/conda/bin/ipython kernel install --user --name esmvaltool && \
     /opt/conda/bin/python -m ipykernel install --user --name=esmvaltool && \
     /opt/conda/bin/jupyter labextension install @jupyterlab/hub-extension \
