@@ -50,12 +50,7 @@ ADD esmvaltool_environment.yml esmvaltool_environment.yml
 RUN conda env create -f esmvaltool_environment.yml && conda clean -yt
 RUN . /opt/conda/etc/profile.d/conda.sh && conda activate esmvaltool && \
     /opt/conda/bin/ipython kernel install --user --name esmvaltool && \
-    /opt/conda/bin/python -m ipykernel install --user --name=esmvaltool && \
-    /opt/conda/bin/jupyter labextension install @jupyterlab/hub-extension \
-                           @jupyter-widgets/jupyterlab-manager && \
-    /opt/conda/bin/jupyter labextension install jupyterlab-datawidgets && \
-    /opt/conda/bin/jupyter labextension install @jupyter-widgets/jupyterlab-sidecar && \
-    /opt/conda/bin/jupyter labextension install jupyter-leaflet
+    /opt/conda/bin/python -m ipykernel install --user --name=esmvaltool
 
 ADD ./startup.sh /startup.sh
 ADD ./monitor_traffic.sh /monitor_traffic.sh
