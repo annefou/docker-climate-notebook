@@ -2,7 +2,6 @@ name: base
 channels:
   - conda-forge
   - bioconda
-  - esmvalgroup
   - defaults
 dependencies:
   - biopython
@@ -100,7 +99,6 @@ dependencies:
   - pillow
   - pip
   - pyaerocom
-  - esmvaltool
   - nc-time-axis
   - nco
   - jupytext
