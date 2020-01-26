@@ -45,6 +45,8 @@ RUN . /opt/conda/etc/profile.d/conda.sh && conda activate cesm && \
                            @jupyter-widgets/jupyterlab-manager && \
     /opt/conda/bin/jupyter labextension install jupyterlab-datawidgets
 
+# Install requirements for cesm 
+ADD esmvaltool_environment.yml esmvaltool_environment.yml
 RUN conda env create -f esmvaltool_environment.yml && conda clean -yt
 RUN . /opt/conda/etc/profile.d/conda.sh && conda activate esmvaltool && \
     /opt/conda/bin/ipython kernel install --user --name esmvaltool && \
