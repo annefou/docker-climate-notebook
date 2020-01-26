@@ -37,7 +37,7 @@ RUN /opt/conda/bin/jupyter labextension install @jupyterlab/hub-extension @jupyt
 ADD cesm_environment.yml cesm_environment.yml
 
 # Python packages
-RUN conda create -f cesm_environment.yml && conda clean -yt
+RUN conda env create -f cesm_environment.yml && conda clean -yt
 
 ADD ./startup.sh /startup.sh
 ADD ./monitor_traffic.sh /monitor_traffic.sh
