@@ -23,7 +23,10 @@ USER jovyan
 ADD climate_environment.yml climate_environment.yml
 
 # Python packages
-RUN conda env update -f climate_environment.yml && conda clean -yt
+RUN conda env update -f climate_environment.yml && conda clean -yt && \
+    pip install --no-cache-dir bioblend galaxy-ie-helpers nbgitpuller \
+               dask_labextension ipydatawidgets sidecar geojsoncontour \
+               pysplit
 
 RUN /opt/conda/bin/jupyter labextension install @jupyterlab/hub-extension @jupyter-widgets/jupyterlab-manager && \
     /opt/conda/bin/jupyter labextension install jupyter-leaflet jupyterlab-datawidgets nbdime-jupyterlab dask-labextension && \
