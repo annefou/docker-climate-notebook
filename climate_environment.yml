@@ -111,9 +111,3 @@ dependencies:
   - pip:
       - bioblend 
       - galaxy-ie-helpers
-      - dask_labextension
-      - ipydatawidgets
-      - sidecar
-      - geojsoncontour
-      - nbgitpuller
-      - pysplit
