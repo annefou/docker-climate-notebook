@@ -40,25 +40,28 @@ RUN /opt/conda/bin/jupyter labextension install @jupyterlab/hub-extension @jupyt
 # Install requirements for cesm 
 ADD esmvaltool_environment.yml esmvaltool_environment.yml
 RUN conda env create -f esmvaltool_environment.yml && conda clean -yt
-RUN . /opt/conda/etc/profile.d/conda.sh && conda activate esmvaltool && \
-    /opt/conda/bin/ipython kernel install --user --name esmvaltool && \
-    /opt/conda/bin/python -m ipykernel install --user --name=esmvaltool && \
-	conda deactivate
+RUN ["/bin/bash" , "-c", ". /opt/conda/etc/profile.d/conda.sh && \
+    conda activate esmvaltool && \
+    python -m pip install ipykernel && \
+    ipython kernel install --user --name esmvaltool && \
+    python -m ipykernel install --user --name=esmvaltool && \
+    conda deactivate"]
 
 # Install requirements for cesm 
 ADD cesm_environment.yml cesm_environment.yml
 
 # Python packages
 RUN conda env create -f cesm_environment.yml && conda clean -yt
-RUN . /opt/conda/etc/profile.d/conda.sh && conda activate cesm && \
-    /opt/conda/bin/ipython kernel install --user --name cesm && \
-    /opt/conda/bin/python -m ipykernel install --user --name=cesm && \
-    /opt/conda/bin/jupyter labextension install @jupyterlab/hub-extension \
-                           @jupyter-widgets/jupyterlab-manager && \
-    /opt/conda/bin/jupyter labextension install jupyterlab-datawidgets && \
-	conda deactivate
+RUN ["/bin/bash" , "-c", ". /opt/conda/etc/profile.d/conda.sh && \
+    conda activate cesm && \
+    python -m pip install ipykernel && \
+    ipython kernel install --user --name cesm && \
+    python -m ipykernel install --user --name=cesm && \
+    jupyter labextension install @jupyterlab/hub-extension \
+            @jupyter-widgets/jupyterlab-manager && \
+    jupyter labextension install jupyterlab-datawidgets && \
+    conda deactivate"]
 
-	
 ADD ./startup.sh /startup.sh
 ADD ./monitor_traffic.sh /monitor_traffic.sh
 ADD ./get_notebook.py /get_notebook.py
